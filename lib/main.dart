@@ -1,6 +1,12 @@
+import 'package:animation/sample-animate0.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+// 生成サンプルの動作
+// void main() => runApp(MyApp());
+
+// Animate1の動作
+void main() => runApp(LogoApp());
+
 
 class MyApp extends StatelessWidget {
   @override
