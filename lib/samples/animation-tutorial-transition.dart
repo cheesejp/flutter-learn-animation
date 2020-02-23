@@ -4,13 +4,11 @@
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(LogoApp());
-
-class LogoApp extends StatefulWidget {
-  _LogoAppState createState() => _LogoAppState();
+class AnimationTutorialSample extends StatefulWidget {
+  _AnimationTutorialSampleState createState() => _AnimationTutorialSampleState();
 }
 
-class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
+class _AnimationTutorialSampleState extends State<AnimationTutorialSample> with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _animationController;
 
