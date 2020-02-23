@@ -1,11 +1,11 @@
-// =======================================================================
+// ==================================================================================================================================
 // BottomNavigationBar Persistant labels
 // https://flutter.github.io/samples/#/
-// =======================================================================
+//
+// 'package:gallery/l10n/gallery_localizations.dart'が見つからなかったので
+// なくても動作するように少し改変しました。
+// ==================================================================================================================================
 
-// Copyright 2019 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 
 import 'package:flutter/material.dart';
 
