@@ -4,11 +4,12 @@
 
 import 'package:flutter/material.dart';
 
-class AnimationTutorialSample extends StatefulWidget {
-  _AnimationTutorialSampleState createState() => _AnimationTutorialSampleState();
+class TransitionDemo extends StatefulWidget {
+  _TransitionDemoState createState() => _TransitionDemoState();
 }
 
-class _AnimationTutorialSampleState extends State<AnimationTutorialSample> with SingleTickerProviderStateMixin {
+class _TransitionDemoState extends State<TransitionDemo>
+    with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _animationController;
 
@@ -17,32 +18,36 @@ class _AnimationTutorialSampleState extends State<AnimationTutorialSample> with 
     super.initState();
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 10));
-    _animation = CurvedAnimation(
-        parent: _animationController, curve: Curves.easeIn)
-      // _animation = Tween<double>(begin: 0, end: 300).animate(_animationController)
-      ..addStatusListener(
-        (status) {
-          print(status);
-          if (status == AnimationStatus.completed) {
-            _animationController.reverse();
-          }
-          if (status == AnimationStatus.dismissed) {
-            _animationController.forward();
-          }
-        },
-      );
+    _animation =
+        CurvedAnimation(parent: _animationController, curve: Curves.easeIn)
+          ..addStatusListener(
+            (status) {
+              print(status);
+              if (status == AnimationStatus.completed) {
+                _animationController.reverse();
+              }
+              if (status == AnimationStatus.dismissed) {
+                _animationController.forward();
+              }
+            },
+          );
     _animationController.forward();
   }
 
   @override
-  // Widget build(BuildContext context) => AnimatedLogo(animation: _animation);
   Widget build(BuildContext context) => GrowTransition(
         child: LogoWidget(),
         animation: _animation,
       );
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 }
 
-// トランジションをレンダリングする
+/// トランジションをレンダリングするクラス。
 class GrowTransition extends StatelessWidget {
   GrowTransition({this.child, this.animation});
 
@@ -66,7 +71,7 @@ class GrowTransition extends StatelessWidget {
       );
 }
 
-// ロゴをレンダリングする
+/// ロゴをレンダリングするクラス。
 class LogoWidget extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         margin: EdgeInsets.symmetric(vertical: 10),

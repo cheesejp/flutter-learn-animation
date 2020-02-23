@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AnimatedAlignPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: AnimatedAlignView(),
-    );
-  }
-}
-
-class AnimatedAlignView extends StatefulWidget {
+class AnimatedAlignDemo extends StatefulWidget {
   static const routeName = 'animatedAlign';
 
   @override
-  _AnimatedAlignViewState createState() => _AnimatedAlignViewState();
+  _AnimatedAlignDemoState createState() => _AnimatedAlignDemoState();
 }
 
-class _AnimatedAlignViewState extends State<AnimatedAlignView> {
+class _AnimatedAlignDemoState extends State<AnimatedAlignDemo> {
   static const _alignments = [
     Alignment.topLeft,
     Alignment.topRight,

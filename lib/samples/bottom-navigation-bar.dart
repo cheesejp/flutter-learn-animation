@@ -40,15 +40,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   List<_NavigationIconView> _navigationViews;
 
   String _title(BuildContext context) {
-    // switch (widget.type) {
-    //   case BottomNavigationDemoType.withLabels:
-    //     return GalleryLocalizations.of(context)
-    //         .demoBottomNavigationPersistentLabels;
-    //   case BottomNavigationDemoType.withoutLabels:
-    //     return GalleryLocalizations.of(context)
-    //         .demoBottomNavigationSelectedLabel;
-    // }
-    return 'Flutter Animation Demo';
+    return 'Bottom Navigation Bar Animation Demo';
   }
 
   @override
@@ -102,7 +94,6 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
       transitions.add(view.transition(context));
     }
 
-    // We want to have the newly animating (fading in) views on top.
     transitions.sort((a, b) {
       final aAnimation = a.opacity;
       final bAnimation = b.opacity;
