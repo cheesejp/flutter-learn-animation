@@ -3,6 +3,7 @@ import 'package:animation/samples/animated-align.dart';
 import 'package:animation/samples/animation-combination.dart';
 import 'package:animation/samples/animation-tutorial-transition.dart';
 import 'package:animation/samples/bottom-navigation-bar.dart';
+import 'package:animation/samples/change-navigation-animation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +12,7 @@ void main() {
 
 class MyTab extends StatelessWidget {
   final List<Widget> animationViews = [
+    ChangeNavigationAnimation(),
     AnimationConbinationDemo(),
     AnimatedSwitcherDemo(),
     AnimatedAlignDemo(),

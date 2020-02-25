@@ -97,8 +97,8 @@ class CardWidget extends StatelessWidget {
           children: <Widget>[
             const ListTile(
               leading: Icon(Icons.album),
-              title: Text('Title'),
-              subtitle: Text('Sub title'),
+              title: Text('2つのアニメーションを連携する'),
+              subtitle: Text('サブタイトル'),
             ),
             ButtonBarTheme(
               data: ButtonBarThemeData(),
