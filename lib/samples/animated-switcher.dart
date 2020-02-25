@@ -18,17 +18,20 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Animated Switcher")),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        final cd = CountdownTimer(Duration(seconds: 10), Duration(seconds: 1));
-        cd.listen((data) {
-          setState(() {
-            elapsed = cd.elapsed.inSeconds;
-            isVisible = !isVisible;
-          });
-        }, onDone: () {
-          cd.cancel();
-        });
-      }),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.refresh),
+          onPressed: () {
+            final cd =
+                CountdownTimer(Duration(seconds: 10), Duration(seconds: 1));
+            cd.listen((data) {
+              setState(() {
+                elapsed = cd.elapsed.inSeconds;
+                isVisible = !isVisible;
+              });
+            }, onDone: () {
+              cd.cancel();
+            });
+          }),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -43,6 +46,7 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
             duration: Duration(seconds: 1),
             // transitionBuilder: this._slideTransition,
             transitionBuilder: this._slideTransitionWithCurve,
+            // transitionBuilder: this._slideTransitionWithClipAndCurve,
             layoutBuilder:
                 (Widget currentChild, List<Widget> previousChildren) {
               return currentChild;
@@ -108,14 +112,6 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
   };
 
   final _slideTransition = (Widget child, Animation<double> animation) {
-    // return ClipRect(
-    //   child: SlideTransition(
-    //     child: child,
-    //     position: animation.drive(
-    //         Tween<Offset>(begin: Offset(0.0, 0.0), end: Offset(0.0, -1.0))),
-    //   ),
-    // );
-
     return SlideTransition(
       child: child,
       position: animation.drive(
@@ -139,4 +135,27 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
           ),
     );
   };
+
+  // final _slideTransitionWithClipAndCurve =
+  //     (Widget child, Animation<double> animation) {
+  //   return ClipRect(
+  //     child: Align(
+  //       alignment: Alignment.topCenter,
+  //       heightFactor: 0.5,
+  //       child: SlideTransition(
+  //         child: child,
+  //         position: animation
+  //             .drive(
+  //               CurveTween(curve: Curves.easeOutQuint),
+  //             )
+  //             .drive(
+  //               Tween<Offset>(
+  //                 begin: Offset(0.0, 0.0),
+  //                 end: Offset(0.0, -1.0),
+  //               ),
+  //             ),
+  //       ),
+  //     ),
+  //   );
+  // };
 }
